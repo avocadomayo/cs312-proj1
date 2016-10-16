@@ -68,6 +68,7 @@ noun([instructor | T],T,Ind) :- prop(_, instructor, Ind).
 noun([building | T],T,Ind) :- prop(_, building, Ind).
 % The following are for proper nouns:
 noun([Ind | T],T,Ind) :- prop(_, code, Ind).
+noun([Ind | T],T,Ind) :- prop(_, instructor, Ind).
 
 % reln(T0,T1,I1,I2,R0,R1) is true if T0-T1 is a relation
 %   that provides relations R1-R0 on individuals I1 and I2
@@ -112,7 +113,8 @@ prop(cs100_101, building, dmp).
 
 /* Try the following queries
 | ?- ask([who, is, teaching, cpsc100], A)
-| ?- ask([who,is,an,instructor],A).
+| ?- ask([who, is, an, instructor],A).
+| ?- ask([is, pottinger, teaching, cpsc100],A).
 | ?- ask([is,john,enrolled,in,cs312],_)..
 | ?- ask([who,is,tall],A).
 | ?- ask([is,john,enrolled,in,a,computer,science,course],_).
