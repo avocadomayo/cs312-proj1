@@ -24,4 +24,3 @@ room | lecture room
 + How do we want to handle lab/tutorial sections?
 + How do we want to handle prof names? Last_first? [last, first]? Last only?
 + Question example: is poole teaching cs312?
-+ Question 
