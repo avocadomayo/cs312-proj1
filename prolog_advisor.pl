@@ -64,6 +64,7 @@ adj([computer, science | T],T,Ind) :- dept(Ind,comp_sci).
 
 % noun(T0,T1,Ind) is true if T0-T1 is a noun that is true of Ind
 noun([course | T],T,Ind) :- prop(_, code, Ind).
+noun([term | T],T,Ind) :- prop(_, term, Ind).
 noun([instructor | T],T,Ind) :- prop(_, instructor, Ind).
 noun([building | T],T,Ind) :- prop(_, building, Ind).
 % The following are for proper nouns:
@@ -74,7 +75,8 @@ noun([Ind | T],T,Ind) :- prop(_, instructor, Ind).
 %   that provides relations R1-R0 on individuals I1 and I2
 % reln([enrolled, in | T],T,I1,I2) :- enrolled_in(I1,I2).
 % reln([passed | T],T,I1,I2) :- passed(I1,I2).
-reln([teaching | T],T,I1,I2) :- prop(X,code,I2), prop(X,instructor,I1).
+reln([teaching | T],T,I1,I2) :- prop(C,code,I2), prop(C,instructor,I1).
+reln([offers | T],T,I1,I2) :- prop(C,term,I1), prop(C,code,I2).
 
 % question(Question,QR,Ind) is true if Question-QR is true of Ind
 question([is | T0],T2,Ind) :-
@@ -112,8 +114,9 @@ prop(cs100_101, activity, lecture).
 prop(cs100_101, building, dmp).
 
 /* Try the following queries
-| ?- ask([who, is, teaching, cpsc100], A)
+| ?- ask([who, is, teaching, cpsc100], A).
 | ?- ask([who, is, an, instructor],A).
+| ?- ask([what, term, offers, cpsc100], A).
 | ?- ask([is, pottinger, teaching, cpsc100],A).
 | ?- ask([is,john,enrolled,in,cs312],_)..
 | ?- ask([who,is,tall],A).
