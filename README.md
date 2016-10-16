@@ -7,18 +7,21 @@ Prolog advisor can answer questions about Computer Science courses offered in th
 
 Property | Description
 --- | ---
-course | course code in format CPSCXXX
-title | course title
+code | course code in format cpscXXX
 section | course section
-activity | activity type (lecture, laboratory, tutorial)
+title | course title
 term | term offered
+credits | number of credits awarded
+activity | activity type (lecture, laboratory, tutorial)
+instructor | instructor name in format ???
 days | day(s) of lecture
 startTime | start time designated in 24h clock
 endTime | end time designated in 24h clock
-instructor | instructor name in format last, first
-credits | number of credits awarded
 building | lecture building
 room | lecture room
 
 ### To be discussed
 + How do we want to handle lab/tutorial sections?
++ How do we want to handle prof names? Last_first? [last, first]? Last only?
++ Question example: is poole teaching cs312?
++ Question 
