@@ -64,9 +64,11 @@ adj([computer, science | T],T,Ind) :- dept(Ind,comp_sci).
 
 % noun(T0,T1,Ind) is true if T0-T1 is a noun that is true of Ind
 noun([course | T],T,Ind) :- prop(_, code, Ind).
+noun([title | T],T,Ind) :- prop(_, title, Ind).
 noun([term | T],T,Ind) :- prop(_, term, Ind).
 noun([instructor | T],T,Ind) :- prop(_, instructor, Ind).
 noun([building | T],T,Ind) :- prop(_, building, Ind).
+noun([credits | T],T,Ind) :- prop(_, credit, Ind).
 % The following are for proper nouns:
 noun([Ind | T],T,Ind) :- prop(_, code, Ind).
 noun([Ind | T],T,Ind) :- prop(_, instructor, Ind).
@@ -77,24 +79,31 @@ noun([Ind | T],T,Ind) :- prop(_, instructor, Ind).
 % reln([passed | T],T,I1,I2) :- passed(I1,I2).
 reln([teaching | T],T,I1,I2) :- prop(C,code,I2), prop(C,instructor,I1).
 reln([offers | T],T,I1,I2) :- prop(C,term,I1), prop(C,code,I2).
+reln([title, of | T],T,I1,I2) :- prop(C,title,I1), prop(C,code,I2).
+% reln([credits | T],T,I1,I2) :- prop(C,credit,I1),prop(C,code,I2).
 
 % question(Question,QR,Ind) is true if Question-QR is true of Ind
+% handles: who is an instructor
 question([is | T0],T2,Ind) :-
     noun_phrase(T0,T1,Ind),
     mp(T1,T2,Ind).
+    
+% handles: who is teaching
 question([who,is | T0],T1,Ind) :-
     mp(T0,T1,Ind).
+    
+% handles: who is an instructor
 question([who,is | T0],T1,Ind) :-
     noun_phrase(T0,T1,Ind).
-question([who,is | T0],T1,Ind) :-
-    adjectives(T0,T1,Ind).
+
 question([what | T0],T2,Ind) :-
     noun_phrase(T0,[is|T1],Ind),
     mp(T1,T2,Ind).
+
+% handles what term offers queries
 question([what | T0],T2,Ind) :-
     noun_phrase(T0,T1,Ind),
     mp(T1,T2,Ind).
-
 
 % ask(Q,A) gives answer A to question Q
 ask(Q,A) :-
@@ -118,14 +127,4 @@ prop(cs100_101, building, dmp).
 | ?- ask([who, is, an, instructor],A).
 | ?- ask([what, term, offers, cpsc100], A).
 | ?- ask([is, pottinger, teaching, cpsc100],A).
-| ?- ask([is,john,enrolled,in,cs312],_)..
-| ?- ask([who,is,tall],A).
-| ?- ask([is,john,enrolled,in,a,computer,science,course],_).
-| ?- ask([who,is,enrolled,in,a,computer,science,course],A).
-| ?- ask([who,is,a,tall,student,enrolled,in,a,computer,science,course],A).
-| ?- ask([what,student,is,enrolled,in,a,computer,science,course],A).
-| ?- ask([what,student,passed,a,computer,science,course],A).
-| ?- ask([what,student,enrolled,in,a,math,course,passed,a,computer,science,course],A).
-| ?- ask([what,student,passed,a,computer,science,course,enrolled,in,a,math,course],A).
-| ?- ask([what,student,passed,cs312],A).
 */
