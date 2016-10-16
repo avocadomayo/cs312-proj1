@@ -33,6 +33,7 @@ noun_phrase(T0,T4,Ind) :-
 % They do not provide any extra constaints.
 det([the | T],T,_).
 det([a | T],T,_).
+det([an | T],T,_).
 det(T,T,_).
 
 % Adjectives consist of a sequence of adjectives.
@@ -63,6 +64,7 @@ adj([computer, science | T],T,Ind) :- dept(Ind,comp_sci).
 
 % noun(T0,T1,Ind) is true if T0-T1 is a noun that is true of Ind
 noun([course | T],T,Ind) :- prop(_, code, Ind).
+noun([instructor | T],T,Ind) :- prop(_, instructor, Ind).
 noun([building | T],T,Ind) :- prop(_, building, Ind).
 % The following are for proper nouns:
 noun([Ind | T],T,Ind) :- prop(_, code, Ind).
@@ -109,9 +111,9 @@ prop(cs100_101, activity, lecture).
 prop(cs100_101, building, dmp).
 
 /* Try the following queries
-| ?- ask([is,john,enrolled,in,cs312],_).
-| ?- ask([who, is, teaching, cpsc100], A).
-| ?- ask([who,is,a,student],A).
+| ?- ask([who, is, teaching, cpsc100], A)
+| ?- ask([who,is,an,instructor],A).
+| ?- ask([is,john,enrolled,in,cs312],_)..
 | ?- ask([who,is,tall],A).
 | ?- ask([is,john,enrolled,in,a,computer,science,course],_).
 | ?- ask([who,is,enrolled,in,a,computer,science,course],A).
