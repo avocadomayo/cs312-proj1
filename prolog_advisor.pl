@@ -79,7 +79,7 @@ noun([Ind | T],T,Ind) :- prop(_, instructor, Ind).
 % reln([passed | T],T,I1,I2) :- passed(I1,I2).
 reln([teaching | T],T,I1,I2) :- prop(C,code,I2), prop(C,instructor,I1).
 reln([offers | T],T,I1,I2) :- prop(C,term,I1), prop(C,code,I2).
-reln([title, of | T],T,I1,I2) :- prop(C,title,I1), prop(C,code,I2).
+reln([the, title, of | T],T,I1,I2) :- prop(C,title,I1), prop(C,code,I2).
 % reln([credits | T],T,I1,I2) :- prop(C,credit,I1),prop(C,code,I2).
 
 % question(Question,QR,Ind) is true if Question-QR is true of Ind
@@ -105,6 +105,10 @@ question([what | T0],T2,Ind) :-
     noun_phrase(T0,T1,Ind),
     mp(T1,T2,Ind).
 
+% handles what is the XXX of
+question([what,is | T0],T1,Ind) :-
+    mp(T0,T1,Ind).
+
 % ask(Q,A) gives answer A to question Q
 ask(Q,A) :-
     question(Q,[],A).
@@ -127,4 +131,5 @@ prop(cs100_101, building, dmp).
 | ?- ask([who, is, an, instructor],A).
 | ?- ask([what, term, offers, cpsc100], A).
 | ?- ask([is, pottinger, teaching, cpsc100],A).
+| ?- ask([what,is,the,title,of,cpsc100],A).
 */
