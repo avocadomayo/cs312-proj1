@@ -58,16 +58,15 @@ mp(T,T,_).
 % DICTIONARY
 
 % adj(T0,T1,Ind) is true if T0-T1 is an adjective that is true of Ind
-adj([computer, science | T],T,Ind) :- dept(Ind,comp_sci).
-% adj([math | T],T,Ind) :- dept(Ind,math).
-% adj([female | T],T,Ind) :- female(Ind).
+adj([first, year | T],T,Ind) :- prop(C, code, Ind), prop(C, year, 1).
+adj([second, year | T],T,Ind) :- prop(C, code, Ind), prop(C, year, 2).
+adj([third, year | T],T,Ind) :- prop(C, code, Ind), prop(C, year, 3).
+adj([fourth, year | T],T,Ind) :- prop(C, code, Ind), prop(C, year, 4).
 
 % noun(T0,T1,Ind) is true if T0-T1 is a noun that is true of Ind
 noun([course | T],T,Ind) :- prop(_, code, Ind).
-noun([title | T],T,Ind) :- prop(_, title, Ind).
 noun([term | T],T,Ind) :- prop(_, term, Ind).
 noun([instructor | T],T,Ind) :- prop(_, instructor, Ind).
-noun([building | T],T,Ind) :- prop(_, building, Ind).
 noun([credits | T],T,Ind) :- prop(_, credit, Ind).
 % The following are for proper nouns:
 noun([Ind | T],T,Ind) :- prop(_, code, Ind).
@@ -98,6 +97,10 @@ question([who,is | T0],T1,Ind) :-
 
 % handles: who is an instructor
 question([who,is | T0],T1,Ind) :-
+    noun_phrase(T0,T1,Ind).
+
+% handles what is a first year course?
+question([what,is | T0],T1,Ind) :-
     noun_phrase(T0,T1,Ind).
 
 % handles: what term offers XXX, what course is taught
@@ -159,6 +162,15 @@ prop(cs103_201, activity, lecture).
 prop(cs103_201, instructor, allen).
 
 
+prop(cs312_101, code, cpsc312).
+prop(cs312_101, year, 3).
+prop(cs312_101, section, 101).
+prop(cs312_101, title, [functional, and, logic, programming]).
+prop(cs312_101, term, 1).
+prop(cs312_101, credits, 3).
+prop(cs312_101, activity, lecture).
+prop(cs312_101, instructor, poole).
+
 /* Try the following queries
 | ?- ask([who, is, teaching, cpsc100], A).
 | ?- ask([who, is, an, instructor, that, teaches, cpsc103], A).
@@ -169,4 +181,5 @@ prop(cs103_201, instructor, allen).
 | ?- ask([what,is,the,title,of,cpsc100],A).
 | ?- ask([how,many,credits,is,cpsc103],A).
 | ?- ask([what,course,is,taught,by,wolfman],A).
+| ?- ask([what,is,a,third,year,course],A).
 */
