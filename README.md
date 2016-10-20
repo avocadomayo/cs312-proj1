@@ -26,12 +26,13 @@ room | lecture room
 ### To be discussed
 + How do we want to handle lab/tutorial sections?
 + How do we want to handle prof names? Last_first? [last, first]? Last only?
++ Pre-requisites?
+
+### Problems
++ Try running `ask([what,is,a,first,year,course,taught,by,allen],A). `
++ Why are there so many answers? Is there a way to reduce?
 
 #### Some questions we can implement
-+ is poole teaching cpsc312?
 + what does poole teach?
-+ how many credits is cpsc400?
-+ what is a third year course taught by poole?
-+ what is a third year course?
 + what course is offered in term1?
 + is cpsc310 in term1?
