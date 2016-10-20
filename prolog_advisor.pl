@@ -78,11 +78,15 @@ noun([Ind | T],T,Ind) :- prop(_, instructor, Ind).
 % reln([enrolled, in | T],T,I1,I2) :- enrolled_in(I1,I2).
 % reln([passed | T],T,I1,I2) :- passed(I1,I2).
 reln([teaching | T],T,I1,I2) :- prop(C,code,I2), prop(C,instructor,I1).
+reln([teaches | T],T,I1,I2) :- prop(C,code,I2), prop(C,instructor,I1).
+reln([taught, by | T],T,I1,I2) :- prop(C,code,I1), prop(C,instructor,I2).
 reln([offers | T],T,I1,I2) :- prop(C,term,I1), prop(C,code,I2).
+reln([term,is | T],T,I1,I2) :- prop(C,term,I1), prop(C,code,I2).
 reln([the, title, of | T],T,I1,I2) :- prop(C,title,I1), prop(C,code,I2).
-% reln([credits | T],T,I1,I2) :- prop(C,credit,I1),prop(C,code,I2).
+reln([credits, is | T],T,I1,I2) :- prop(C,credits,I1), prop(C,code,I2).
 
 % question(Question,QR,Ind) is true if Question-QR is true of Ind
+
 % handles: who is an instructor
 question([is | T0],T2,Ind) :-
     noun_phrase(T0,T1,Ind),
@@ -91,22 +95,26 @@ question([is | T0],T2,Ind) :-
 % handles: who is teaching
 question([who,is | T0],T1,Ind) :-
     mp(T0,T1,Ind).
-    
+
 % handles: who is an instructor
 question([who,is | T0],T1,Ind) :-
     noun_phrase(T0,T1,Ind).
 
+% handles: what term offers XXX, what course is taught
 question([what | T0],T2,Ind) :-
     noun_phrase(T0,[is|T1],Ind),
     mp(T1,T2,Ind).
 
-% handles what term offers queries
-question([what | T0],T2,Ind) :-
-    noun_phrase(T0,T1,Ind),
-    mp(T1,T2,Ind).
+% what term is XXX?
+question([what | T0],T1,Ind) :-
+    mp(T0,T1,Ind).
 
 % handles what is the XXX of
 question([what,is | T0],T1,Ind) :-
+    mp(T0,T1,Ind).
+    
+% handles: how many credits is XXX
+question([how,many | T0],T1,Ind) :-
     mp(T0,T1,Ind).
 
 % ask(Q,A) gives answer A to question Q
@@ -117,19 +125,48 @@ ask(Q,A) :-
 %  The Database of Facts to be Queried
 
 prop(cs100_101, code, cpsc100).
+prop(cs100_101, year, 1).
 prop(cs100_101, section, 101).
 prop(cs100_101, title, [computational, thinking]).
-prop(cs100_101, activity, lecture).
-prop(cs100_101, instructor, pottinger).
 prop(cs100_101, term, 1).
 prop(cs100_101, credits, 3).
 prop(cs100_101, activity, lecture).
+prop(cs100_101, instructor, pottinger).
+prop(cs100_101, activity, lecture).
 prop(cs100_101, building, dmp).
+prop(cs100_101, room, 110).
+
+
+prop(cs103_101, code, cpsc103).
+prop(cs103_101, year, 1).
+prop(cs103_101, section, 101).
+prop(cs103_101, title, [introduction, to, systematic, program, design]).
+prop(cs103_101, term, 1).
+prop(cs103_101, credits, 3).
+prop(cs103_101, activity, lecture).
+prop(cs103_101, instructor, wolfman).
+prop(cs103_101, instructor, wolfman).
+prop(cs103_101, building, dmp).
+
+
+prop(cs103_201, code, cpsc103).
+prop(cs103_201, year, 1).
+prop(cs103_201, section, 201).
+prop(cs103_201, title, [introduction, to, systematic, program, design]).
+prop(cs103_201, term, 2).
+prop(cs103_201, credits, 3).
+prop(cs103_201, activity, lecture).
+prop(cs103_201, instructor, allen).
+
 
 /* Try the following queries
 | ?- ask([who, is, teaching, cpsc100], A).
+| ?- ask([who, is, an, instructor, that, teaches, cpsc103], A).
 | ?- ask([who, is, an, instructor],A).
 | ?- ask([what, term, offers, cpsc100], A).
+| ?- ask([what, term, is, cpsc103], A).
 | ?- ask([is, pottinger, teaching, cpsc100],A).
 | ?- ask([what,is,the,title,of,cpsc100],A).
+| ?- ask([how,many,credits,is,cpsc103],A).
+| ?- ask([what,course,is,taught,by,wolfman],A).
 */
