@@ -8,12 +8,15 @@ Prolog advisor can answer questions about Computer Science courses offered in th
 Property | Description
 --- | ---
 code | course code in format cpscXXX
+year | course year 1, 2, 3 or 4
 section | course section
 title | course title
 term | term offered
 credits | number of credits awarded
 activity | activity type (lecture, laboratory, tutorial)
 instructor | instructor name in format ???
+has_tutorial | true if has tutorial
+has_lab | true if has lab ???
 days | day(s) of lecture
 startTime | start time designated in 24h clock
 endTime | end time designated in 24h clock
@@ -23,6 +26,12 @@ room | lecture room
 ### To be discussed
 + How do we want to handle lab/tutorial sections?
 + How do we want to handle prof names? Last_first? [last, first]? Last only?
-+ Can implement: is poole teaching cpsc312?
-+ Can implement: what does poole teach?
-+ Can implement: how many credits is cpsc400?
+
+#### Some questions we can implement
++ is poole teaching cpsc312?
++ what does poole teach?
++ how many credits is cpsc400?
++ what is a third year course taught by poole?
++ what is a third year course?
++ what course is offered in term1?
++ is cpsc310 in term1?
