@@ -27,6 +27,8 @@ room | lecture room
 + How do we want to handle lab/tutorial sections?
 + How do we want to handle prof names? Last_first? [last, first]? Last only?
 + Pre-requisites?
++ Database of student. Can Sam take cpscXXX?
++ Pre-req checker
 
 ### Problems
 + Try running `ask([what,is,a,first,year,course,taught,by,allen],A). `
@@ -36,3 +38,5 @@ room | lecture room
 + what does poole teach?
 + what course is offered in term1?
 + is cpsc310 in term1?
++ who is teaching section 1 of cpsc103?
++ who is teaching what section of cpsc103?
