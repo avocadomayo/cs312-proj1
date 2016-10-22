@@ -1,5 +1,4 @@
 % Prolog representation of a grammar to build a query for a database
-%  This is not meant to be polished or lingustically reasonable, but purely to show what can be done
 
 % This is slightly expanded code of Figures 12.10 and 12.11 in Section 12.6.6 of
 % Poole and Mackworth, Artificial Intelligence: foundations of
@@ -74,8 +73,6 @@ noun([Ind | T],T,Ind) :- prop(_, instructor, Ind).
 
 % reln(T0,T1,I1,I2,R0,R1) is true if T0-T1 is a relation
 %   that provides relations R1-R0 on individuals I1 and I2
-% reln([enrolled, in | T],T,I1,I2) :- enrolled_in(I1,I2).
-% reln([passed | T],T,I1,I2) :- passed(I1,I2).
 reln([teaching | T],T,I1,I2) :- prop(C,code,I2), prop(C,instructor,I1).
 reln([teaches | T],T,I1,I2) :- prop(C,code,I2), prop(C,instructor,I1).
 reln([taught, by | T],T,I1,I2) :- prop(C,code,I1), prop(C,instructor,I2).
@@ -122,9 +119,10 @@ question([how,many | T0],T1,Ind) :-
 % ask(Q,A) gives answer A to question Q
 ask(Q,A) :-
     question(Q,[],A).
+ask(Q) :-
+    question(Q,[],_).
 
-
-%  The Database of Facts to be Queried
+%  The Database of Courses
 
 prop(cs100_101, code, cpsc100).
 prop(cs100_101, year, 1).
@@ -149,7 +147,6 @@ prop(cs103_101, instructor, allen).
 prop(cs103_101, instructor, wolfman).
 prop(cs103_101, building, dmp).
 
-
 prop(cs103_201, code, cpsc103).
 prop(cs103_201, year, 1).
 prop(cs103_201, section, 201).
@@ -158,6 +155,78 @@ prop(cs103_201, term, 2).
 prop(cs103_201, credits, 3).
 prop(cs103_201, activity, lecture).
 prop(cs103_201, instructor, allen).
+
+prop(cs110_101, code, cpsc110).
+prop(cs110_101, year, 1).
+prop(cs110_101, section, 101).
+prop(cs110_101, title, [computation, programs, and, programming]).
+prop(cs110_101, term, 1).
+prop(cs110_101, credits, 4).
+prop(cs110_101, activity, lecture).
+prop(cs110_101, instructor, berg).
+
+prop(cs110_102, code, cpsc110).
+prop(cs110_102, year, 1).
+prop(cs110_102, section, 102).
+prop(cs110_102, title, [computation, programs, and, programming]).
+prop(cs110_102, term, 1).
+prop(cs110_102, credits, 4).
+prop(cs110_102, activity, lecture).
+prop(cs110_102, instructor, kiczales).
+
+prop(cs110_103, code, cpsc110).
+prop(cs110_103, year, 1).
+prop(cs110_103, section, 103).
+prop(cs110_103, title, [computation, programs, and, programming]).
+prop(cs110_103, term, 1).
+prop(cs110_103, credits, 4).
+prop(cs110_103, activity, lecture).
+prop(cs110_103, instructor, little).
+
+prop(cs110_104, code, cpsc110).
+prop(cs110_104, year, 1).
+prop(cs110_104, section, 104).
+prop(cs110_104, title, [computation, programs, and, programming]).
+prop(cs110_104, term, 1).
+prop(cs110_104, credits, 4).
+prop(cs110_104, activity, lecture).
+prop(cs110_104, instructor, estey).
+
+prop(cs110_bcs, code, cpsc110).
+prop(cs110_bcs, year, 1).
+prop(cs110_bcs, section, bcs).
+prop(cs110_bcs, title, [computation, programs, and, programming]).
+prop(cs110_bcs, term, 1).
+prop(cs110_bcs, credits, 4).
+prop(cs110_bcs, activity, lecture).
+prop(cs110_bcs, instructor, kiczales).
+
+prop(cs110_201, code, cpsc110).
+prop(cs110_201, year, 1).
+prop(cs110_201, section, 201).
+prop(cs110_201, title, [computation, programs, and, programming]).
+prop(cs110_201, term, 2).
+prop(cs110_201, credits, 4).
+prop(cs110_201, activity, lecture).
+prop(cs110_201, instructor, mitchell).
+
+prop(cs110_202, code, cpsc110).
+prop(cs110_202, year, 1).
+prop(cs110_202, section, 202).
+prop(cs110_202, title, [computation, programs, and, programming]).
+prop(cs110_202, term, 2).
+prop(cs110_202, credits, 4).
+prop(cs110_202, activity, lecture).
+prop(cs110_202, instructor, carter).
+
+prop(cs110_203, code, cpsc110).
+prop(cs110_203, year, 1).
+prop(cs110_203, section, 203).
+prop(cs110_203, title, [computation, programs, and, programming]).
+prop(cs110_203, term, 2).
+prop(cs110_203, credits, 4).
+prop(cs110_203, activity, lecture).
+prop(cs110_203, instructor, aiello).
 
 prop(cs213_203, code, cpsc213).
 prop(cs213_203, year, 2).
@@ -168,6 +237,141 @@ prop(cs213_203, credits, 3).
 prop(cs213_203, activity, lecture).
 prop(cs213_203, instructor, wagner).
 
+prop(cs221_101, code, cpsc221).
+prop(cs221_101, year, 2).
+prop(cs221_101, section, 101).
+prop(cs221_101, title, [basic, algorithms, and, data, structures]).
+prop(cs221_101, term, 1).
+prop(cs221_101, credits, 4).
+prop(cs221_101, activity, lecture).
+prop(cs221_101, instructor, manuch).
+
+prop(cs221_102, code, cpsc221).
+prop(cs221_102, year, 2).
+prop(cs221_102, section, 102).
+prop(cs221_102, title, [basic, algorithms, and, data, structures]).
+prop(cs221_102, term, 1).
+prop(cs221_102, credits, 4).
+prop(cs221_102, activity, lecture).
+prop(cs221_102, instructor, evans).
+
+prop(cs221_201, code, cpsc221).
+prop(cs221_201, year, 2).
+prop(cs221_201, section, 201).
+prop(cs221_201, title, [basic, algorithms, and, data, structures]).
+prop(cs221_201, term, 2).
+prop(cs221_201, credits, 4).
+prop(cs221_201, activity, lecture).
+prop(cs221_201, instructor, knorr).
+
+prop(cs221_202, code, cpsc221).
+prop(cs221_202, year, 2).
+prop(cs221_202, section, 202).
+prop(cs221_202, title, [basic, algorithms, and, data, structures]).
+prop(cs221_202, term, 2).
+prop(cs221_202, credits, 4).
+prop(cs221_202, activity, lecture).
+prop(cs221_202, instructor, manuch).
+
+prop(cs259_101, code, cpsc259).
+prop(cs259_101, year, 2).
+prop(cs259_101, section, 101).
+prop(cs259_101, title, [data, structures, and, algorithms, for, electrical, engineers]).
+prop(cs259_101, term, 1).
+prop(cs259_101, credits, 4).
+prop(cs259_101, activity, lecture).
+prop(cs259_101, instructor, awad).
+
+prop(cs261_201, code, cpsc261).
+prop(cs261_201, year, 2).
+prop(cs261_201, section, 201).
+prop(cs261_201, title, [basics, of, computer, systems]).
+prop(cs261_201, term, 2).
+prop(cs261_201, credits, 4).
+prop(cs261_201, activity, lecture).
+prop(cs261_201, instructor, schroeder).
+
+prop(cs213_101, code, cpsc213).
+prop(cs213_101, year, 2).
+prop(cs213_101, section, 101).
+prop(cs213_101, title, [introduction, to, computer,systems]).
+prop(cs213_101, term, 1).
+prop(cs213_101, credits, 4).
+prop(cs213_101, activity, lecture).
+prop(cs213_101, instructor, awad).
+
+prop(cs301_201, code, cpsc301).
+prop(cs301_201, year, 3).
+prop(cs301_201, section, 201).
+prop(cs301_201, title, [computing, in, life, sciences]).
+prop(cs301_201, term, 2).
+prop(cs301_201, credits, 3).
+prop(cs301_201, activity, lecture).
+prop(cs301_201, instructor, dawson).
+
+prop(cs302_101, code, cpsc302).
+prop(cs302_101, year, 3).
+prop(cs302_101, section, 101).
+prop(cs302_101, title, [numerical, computation, for, algebraic, problems]).
+prop(cs302_101, term, 1).
+prop(cs302_101, credits, 3).
+prop(cs302_101, activity, lecture).
+prop(cs302_101, instructor, friedlander).
+
+prop(cs303_201, code, cpsc303).
+prop(cs303_201, year, 3).
+prop(cs303_201, section, 201).
+prop(cs303_201, title, [numerical, approximation, and, discretization]).
+prop(cs303_201, term, 2).
+prop(cs303_201, credits, 3).
+prop(cs303_201, activity, lecture).
+% Instructor for this course TBA
+
+prop(cs304_101, code, cpsc304).
+prop(cs304_101, year, 3).
+prop(cs304_101, section, 101).
+prop(cs304_101, title, [introduction, to, relational, databases]).
+prop(cs304_101, term, 1).
+prop(cs304_101, credits, 3).
+prop(cs304_101, activity, lecture).
+prop(cs304_101, instructor, imran).
+
+prop(cs304_201, code, cpsc304).
+prop(cs304_201, year, 3).
+prop(cs304_201, section, 201).
+prop(cs304_201, title, [introduction, to, relational, databases]).
+prop(cs304_201, term, 2).
+prop(cs304_201, credits, 3).
+prop(cs304_201, activity, lecture).
+prop(cs304_201, instructor, lakshmanan).
+
+prop(cs310_101, code, cpsc310).
+prop(cs310_101, year, 3).
+prop(cs310_101, section, 101).
+prop(cs310_101, title, [introduction, software, engineering]).
+prop(cs310_101, term, 1).
+prop(cs310_101, credits, 4).
+prop(cs310_101, activity, lecture).
+prop(cs310_101, instructor, holmes).
+
+prop(cs310_201, code, cpsc310).
+prop(cs310_201, year, 3).
+prop(cs310_201, section, 201).
+prop(cs310_201, title, [introduction, software, engineering]).
+prop(cs310_201, term, 2).
+prop(cs310_201, credits, 4).
+prop(cs310_201, activity, lecture).
+% Instructor for this course TBA
+
+prop(cs311_101, code, cpsc311).
+prop(cs311_101, year, 3).
+prop(cs311_101, section, 101).
+prop(cs311_101, title, [definition, of, programming, languages]).
+prop(cs311_101, term, 1).
+prop(cs311_101, credits, 3).
+prop(cs311_101, activity, lecture).
+prop(cs311_101, instructor, dunfield).
+
 prop(cs312_101, code, cpsc312).
 prop(cs312_101, year, 3).
 prop(cs312_101, section, 101).
@@ -177,21 +381,147 @@ prop(cs312_101, credits, 3).
 prop(cs312_101, activity, lecture).
 prop(cs312_101, instructor, poole).
 
-prop(cs213_101, code, cpsc213).
-prop(cs213_101, year, 2).
-prop(cs213_101, section, 101).
-prop(cs213_101, title, [introduction, to, computer,systems]).
-prop(cs213_101, term, 1).
-prop(cs213_101, credits, 3).
-prop(cs213_101, activity, lecture).
-prop(cs213_101, instructor, awad).
+prop(cs313_101, code, cpsc313).
+prop(cs313_101, year, 3).
+prop(cs313_101, section, 101).
+prop(cs313_101, title, [computer, hardware, and, operating, systems]).
+prop(cs313_101, term, 1).
+prop(cs313_101, credits, 3).
+prop(cs313_101, activity, lecture).
+prop(cs313_101, instructor, feeley).
+
+prop(cs313_202, code, cpsc313).
+prop(cs313_202, year, 3).
+prop(cs313_202, section, 202).
+prop(cs313_202, title, [computer, hardware, and, operating, systems]).
+prop(cs313_202, term, 2).
+prop(cs313_202, credits, 3).
+prop(cs313_202, activity, lecture).
+prop(cs313_202, instructor, acton).
+
+prop(cs314_101, code, cpsc314).
+prop(cs314_101, year, 3).
+prop(cs314_101, section, 101).
+prop(cs314_101, title, [computer, graphics]).
+prop(cs314_101, term, 1).
+prop(cs314_101, credits, 3).
+prop(cs314_101, activity, lecture).
+prop(cs314_101, instructor, sheffer).
+
+prop(cs314_201, code, cpsc314).
+prop(cs314_201, year, 3).
+prop(cs314_201, section, 201).
+prop(cs314_201, title, [computer, graphics]).
+prop(cs314_201, term, 2).
+prop(cs314_201, credits, 3).
+prop(cs314_201, activity, lecture).
+prop(cs314_201, instructor, vandepanne).
+
+prop(cs317_101, code, cpsc317).
+prop(cs317_101, year, 3).
+prop(cs317_101, section, 101).
+prop(cs317_101, title, [internet, computing]).
+prop(cs317_101, term, 1).
+prop(cs317_101, credits, 3).
+prop(cs317_101, activity, lecture).
+prop(cs317_101, instructor, acton).
+
+prop(cs317_201, code, cpsc317).
+prop(cs317_201, year, 3).
+prop(cs317_201, section, 201).
+prop(cs317_201, title, [internet, computing]).
+prop(cs317_201, term, 2).
+prop(cs317_201, credits, 3).
+prop(cs317_201, activity, lecture).
+prop(cs317_201, instructor, acton).
+
+prop(cs319_201, code, cpsc319).
+prop(cs319_201, year, 3).
+prop(cs319_201, section, 201).
+prop(cs319_201, title, [software, engineering, project]).
+prop(cs319_201, term, 2).
+prop(cs319_201, credits, 4).
+prop(cs319_201, activity, lecture).
+prop(cs319_201, instructor, jim).
+
+prop(cs320_102, code, cpsc320).
+prop(cs320_102, year, 3).
+prop(cs320_102, section, 102).
+prop(cs320_102, title, [intermediate, algorithm, design, and, analysis]).
+prop(cs320_102, term, 1).
+prop(cs320_102, credits, 3).
+prop(cs320_102, activity, lecture).
+prop(cs320_102, instructor, wolfman).
+
+prop(cs320_201, code, cpsc320).
+prop(cs320_201, year, 3).
+prop(cs320_201, section, 201).
+prop(cs320_201, title, [intermediate, algorithm, design, and, analysis]).
+prop(cs320_201, term, 2).
+prop(cs320_201, credits, 3).
+prop(cs320_201, activity, lecture).
+prop(cs320_201, instructor, wolfman).
+
+prop(cs320_202, code, cpsc320).
+prop(cs320_202, year, 3).
+prop(cs320_202, section, 202).
+prop(cs320_202, title, [intermediate, algorithm, design, and, analysis]).
+prop(cs320_202, term, 2).
+prop(cs320_202, credits, 3).
+prop(cs320_202, activity, lecture).
+prop(cs320_202, instructor, manuch).
+
+prop(cs322_101, code, cpsc322).
+prop(cs322_101, year, 3).
+prop(cs322_101, section, 101).
+prop(cs322_101, title, [introduction, to, artificial, intelligence]).
+prop(cs322_101, term, 1).
+prop(cs322_101, credits, 3).
+prop(cs322_101, activity, lecture).
+prop(cs322_101, instructor, oveisifordoei).
+
+prop(cs322_201, code, cpsc322).
+prop(cs322_201, year, 3).
+prop(cs322_201, section, 201).
+prop(cs322_201, title, [introduction, to, artificial, intelligence]).
+prop(cs322_201, term, 2).
+prop(cs322_201, credits, 3).
+prop(cs322_201, activity, lecture).
+prop(cs322_201, instructor, conati).
+
+prop(cs340_101, code, cpsc340).
+prop(cs340_101, year, 3).
+prop(cs340_101, section, 101).
+prop(cs340_101, title, [machine, learning, and, data, mining]).
+prop(cs340_101, term, 1).
+prop(cs340_101, credits, 3).
+prop(cs340_101, activity, lecture).
+prop(cs340_101, instructor, schmidt).
+
+prop(cs340_201, code, cpsc340).
+prop(cs340_201, year, 3).
+prop(cs340_201, section, 201).
+prop(cs340_201, title, [machine, learning, and, data, mining]).
+prop(cs340_201, term, 2).
+prop(cs340_201, credits, 3).
+prop(cs340_201, activity, lecture).
+prop(cs340_201, instructor, gelbart).
+
+prop(cs344_101, code, cpsc344).
+prop(cs344_101, year, 3).
+prop(cs344_101, section, 101).
+prop(cs344_101, title, [introduction, to, human, computer, interaction, methods]).
+prop(cs344_101, term, 1).
+prop(cs344_101, credits, 3).
+prop(cs344_101, activity, lecture).
+prop(cs344_101, instructor, maclean).
 
 /* Try the following queries
 | ?- ask([who, is, teaching, cpsc100], A).
 | ?- ask([who, is, an, instructor, that, teaches, cpsc103], A).
 | ?- ask([who, is, an, instructor],A).
 | ?- ask([what, term, is, cpsc103], A).
-| ?- ask([is, pottinger, teaching, cpsc100],A).
+| ?- ask([is, pottinger, teaching, cpsc100]).
 | ?- ask([what,is,the,title,of,cpsc213],A).
 | ?- ask([how,many,credits,is,cpsc103],A).
 | ?- ask([what,course,is,taught,by,wolfman],A).
