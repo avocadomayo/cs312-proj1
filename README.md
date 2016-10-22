@@ -1,6 +1,7 @@
 ## CS312 Project 1: Prolog Advisor
 Prolog advisor can answer questions about Computer Science courses offered in the 2016/17W school year.
-Use `ask([Q])` to ask yes/no questions. For example, `ask([is, pottinger, teaching, cpsc100]).'
+
+Use `ask([Q])` to ask yes/no questions. For example, `ask([is, pottinger, teaching, cpsc100]).`
 Use `ask([Q],A)` to ask all other questions. For example, `ask([what,is,a,third,year,course],A).`
 
 ### Properties
