@@ -123,11 +123,11 @@ ask(Q) :-
     question(Q,[],_).
 
 /* Try the following queries
-| ?- ask([who, is, teaching, cpsc100], A).
-| ?- ask([who, is, an, instructor, that, teaches, cpsc121], A).
-| ?- ask([who, is, an, instructor],A).
-| ?- ask([what, term, is, cpsc320], A).
-| ?- ask([is, pottinger, teaching, cpsc100]).
+| ?- ask([who,is,teaching,cpsc100], A).
+| ?- ask([who,is,an,instructor,that,teaches,cpsc121], A).
+| ?- ask([who,is,an,instructor],A).
+| ?- ask([what,term,is,cpsc320], A).
+| ?- ask([is,pottinger,teaching,cpsc100]).
 | ?- ask([what,is,the,title,of,cpsc416],A).
 | ?- ask([how,many,credits,is,cpsc103],A).
 | ?- ask([what,course,is,taught,by,wolfman],A).
@@ -146,8 +146,6 @@ prop(cs100_101, credits, 3).
 prop(cs100_101, activity, lecture).
 prop(cs100_101, instructor, pottinger).
 prop(cs100_101, activity, lecture).
-prop(cs100_101, building, dmp).
-prop(cs100_101, room, 110).
 
 prop(cs103_101, code, cpsc103).
 prop(cs103_101, year, 1).
@@ -158,7 +156,7 @@ prop(cs103_101, credits, 3).
 prop(cs103_101, activity, lecture).
 prop(cs103_101, instructor, allen).
 prop(cs103_101, instructor, wolfman).
-prop(cs103_101, building, dmp).
+% This course has two instructors
 
 prop(cs103_201, code, cpsc103).
 prop(cs103_201, year, 1).
