@@ -1,8 +1,10 @@
 ## CS312 Project 1: Prolog Advisor
 Prolog advisor can answer questions about Computer Science courses offered in the 2016/17W school year.
+Use `ask([Q])` to ask yes/no questions. For example, `ask([is, pottinger, teaching, cpsc100]).'
+Use `ask([Q],A)` to ask all other questions. For example, `ask([what,is,a,third,year,course],A).`
 
 ### Properties
-+ Each course section is represented by a code. Eg. CPSC 100, section 101 has code cs100_101.
++ Each course section is represented by an identifier. Eg. CPSC 100, section 101 has code cs100_101.
 + Each course has the following properties:
 
 Property | Description
@@ -23,20 +25,17 @@ endTime | end time designated in 24h clock
 building | lecture building
 room | lecture room
 
-### To be discussed
-+ How do we want to handle lab/tutorial sections?
-+ How do we want to handle prof names? Last_first? [last, first]? Last only?
-+ Pre-requisites?
-+ Database of student. Can Sam take cpscXXX?
-+ Pre-req checker
+### Interesting feature to be implemented
++ Implement a student database.
++ Implement a pre-req checker. eg. can sam take cpscXXX?
 
 ### Problems
-+ Try running `ask([what,is,a,first,year,course,taught,by,allen],A). `
-+ Why are there so many answers? Is there a way to reduce?
++ Can we use set_of to reduce repeated answers?
 
-#### Some questions we can implement
+### Some questions we can implement
 + what does poole teach?
 + what course is offered in term1?
 + is cpsc310 in term1?
 + who is teaching section 1 of cpsc103?
 + who is teaching what section of cpsc103?
++ what section of cs221 is wolfman teaching?
