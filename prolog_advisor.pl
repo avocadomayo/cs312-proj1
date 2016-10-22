@@ -122,6 +122,19 @@ ask(Q,A) :-
 ask(Q) :-
     question(Q,[],_).
 
+/* Try the following queries
+| ?- ask([who, is, teaching, cpsc100], A).
+| ?- ask([who, is, an, instructor, that, teaches, cpsc121], A).
+| ?- ask([who, is, an, instructor],A).
+| ?- ask([what, term, is, cpsc320], A).
+| ?- ask([is, pottinger, teaching, cpsc100]).
+| ?- ask([what,is,the,title,of,cpsc416],A).
+| ?- ask([how,many,credits,is,cpsc103],A).
+| ?- ask([what,course,is,taught,by,wolfman],A).
+| ?- ask([what,is,a,fourth,year,course],A).
+| ?- ask([what,is,a,third,year,course,taught,by,poole],A).
+*/
+
 %  The Database of Courses
 
 prop(cs100_101, code, cpsc100).
@@ -227,6 +240,60 @@ prop(cs110_203, term, 2).
 prop(cs110_203, credits, 4).
 prop(cs110_203, activity, lecture).
 prop(cs110_203, instructor, aiello).
+
+prop(cs121_101, code, cpsc121).
+prop(cs121_101, year, 1).
+prop(cs121_101, section, 101).
+prop(cs121_101, title, [models, of, computation]).
+prop(cs121_101, term, 1).
+prop(cs121_101, credits, 4).
+prop(cs121_101, activity, lecture).
+prop(cs121_101, instructor, gao).
+
+prop(cs121_102, code, cpsc121).
+prop(cs121_102, year, 1).
+prop(cs121_102, section, 102).
+prop(cs121_102, title, [models, of, computation]).
+prop(cs121_102, term, 1).
+prop(cs121_102, credits, 4).
+prop(cs121_102, activity, lecture).
+prop(cs121_102, instructor, belleville).
+
+prop(cs121_103, code, cpsc121).
+prop(cs121_103, year, 1).
+prop(cs121_103, section, 103).
+prop(cs121_103, title, [models, of, computation]).
+prop(cs121_103, term, 1).
+prop(cs121_103, credits, 4).
+prop(cs121_103, activity, lecture).
+prop(cs121_103, instructor, belleville).
+
+prop(cs121_202, code, cpsc121).
+prop(cs121_202, year, 1).
+prop(cs121_202, section, 202).
+prop(cs121_202, title, [models, of, computation]).
+prop(cs121_202, term, 2).
+prop(cs121_202, credits, 4).
+prop(cs121_202, activity, lecture).
+prop(cs121_202, instructor, gao).
+
+prop(cs121_203, code, cpsc121).
+prop(cs121_203, year, 1).
+prop(cs121_203, section, 203).
+prop(cs121_203, title, [models, of, computation]).
+prop(cs121_203, term, 2).
+prop(cs121_203, credits, 4).
+prop(cs121_203, activity, lecture).
+prop(cs121_203, instructor, wolfman).
+
+prop(cs121_bcs, code, cpsc121).
+prop(cs121_bcs, year, 1).
+prop(cs121_bcs, section, bcs).
+prop(cs121_bcs, title, [models, of, computation]).
+prop(cs121_bcs, term, 2).
+prop(cs121_bcs, credits, 4).
+prop(cs121_bcs, activity, lecture).
+prop(cs121_bcs, instructor, wolfman).
 
 prop(cs213_203, code, cpsc213).
 prop(cs213_203, year, 2).
@@ -526,13 +593,13 @@ prop(cs404_101, activity, lecture).
 prop(cs404_101, instructor, knorr).
 
 prop(cs406_101, code, cpsc406).
-prop(cs404_101, year, 4).
-prop(cs404_101, section, 101).
-prop(cs404_101, title, [computational, optimization]).
-prop(cs404_101, term, 1).
-prop(cs404_101, credits, 3).
-prop(cs404_101, activity, lecture).
-prop(cs404_101, instructor, ascher).
+prop(cs406_101, year, 4).
+prop(cs406_101, section, 101).
+prop(cs406_101, title, [computational, optimization]).
+prop(cs406_101, term, 1).
+prop(cs406_101, credits, 3).
+prop(cs406_101, activity, lecture).
+prop(cs406_101, instructor, ascher).
 
 prop(cs411_201, code, cpsc411).
 prop(cs411_201, year, 4).
@@ -641,16 +708,3 @@ prop(cs445_201, term, 2).
 prop(cs445_201, credits, 3).
 prop(cs445_201, activity, lecture).
 prop(cs445_201, instructor, hoos).
-
-/* Try the following queries
-| ?- ask([who, is, teaching, cpsc100], A).
-| ?- ask([who, is, an, instructor, that, teaches, cpsc103], A).
-| ?- ask([who, is, an, instructor],A).
-| ?- ask([what, term, is, cpsc103], A).
-| ?- ask([is, pottinger, teaching, cpsc100]).
-| ?- ask([what,is,the,title,of,cpsc213],A).
-| ?- ask([how,many,credits,is,cpsc103],A).
-| ?- ask([what,course,is,taught,by,wolfman],A).
-| ?- ask([what,is,a,third,year,course],A).
-| ?- ask([what,is,a,third,year,course,taught,by,poole],A).
-*/
