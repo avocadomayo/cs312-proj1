@@ -80,6 +80,7 @@ reln([teaching | T],T,I1,I2) :- prop(C,code,I2), prop(C,instructor,I1).
 reln([teaches | T],T,I1,I2) :- prop(I2,instructor,I1).
 reln([teaches | T],T,I1,I2) :- prop(C,code,I2), prop(C,instructor,I1).
 reln([taught, by | T],T,I1,I2) :- prop(C,code,I1), prop(C,instructor,I2).
+reln([term,is | T],T,I1,I2) :- prop(I2,term,I1).
 reln([term,is | T],T,I1,I2) :- prop(C,term,I1), prop(C,code,I2).
 reln([the, title, of | T],T,I1,I2) :- prop(I2,code,C), prop(C,title,I1).
 reln([the, title, of | T],T,I1,I2) :- prop(I2,title,I1).
@@ -166,6 +167,7 @@ extract_a([_ | T],A) :-
 | ?- ask([what,is,the,title,of,cpsc416],A).
 | ?- ask([what,is,the,title,of,cs416_201],A).
 | ?- ask([how,many,credits,is,cpsc103],A).
+| ?- ask([how,many,credits,is,cs103_101],A).
 | ?- ask([what,course,is,taught,by,wolfman],A).
 | ?- ask([what,is,a,fourth,year,course],A).
 | ?- ask([what,is,a,third,year,course,taught,by,poole],A).
