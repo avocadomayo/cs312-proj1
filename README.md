@@ -2,7 +2,8 @@
 Prolog advisor can answer questions about Computer Science courses offered in the 2016/17W school year.
 
 Use `ask([Q])` to ask yes/no questions. For example, `ask([is, pottinger, teaching, cpsc100]).`
-Use `ask([Q],A)` to ask all other questions. For example, `ask([what,is,a,third,year,course],A).`
+Use `ask([Q],A)` to ask for singular answers for questions. For example, `ask([what,is,a,third,year,course],A).`
+Use `ask_all([Q],L)` to ask for a list of answers questions. For example, `ask_all([what,is,a,third,year,course],L).`
 
 ### Properties
 + Each course section is represented by an identifier. Eg. CPSC 100, section 101 has code cs100_101.
