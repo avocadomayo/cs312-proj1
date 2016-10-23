@@ -267,6 +267,7 @@ prop(cs121_102, term, 1).
 prop(cs121_102, credits, 4).
 prop(cs121_102, activity, lecture).
 prop(cs121_102, instructor, belleville).
+prop(cs121_102, coreq, [cpsc110]).
 
 prop(cs121_103, code, cpsc121).
 prop(cs121_103, year, 1).
@@ -276,6 +277,7 @@ prop(cs121_103, term, 1).
 prop(cs121_103, credits, 4).
 prop(cs121_103, activity, lecture).
 prop(cs121_103, instructor, belleville).
+prop(cs121_103, coreq, [cpsc110]).
 
 prop(cs121_202, code, cpsc121).
 prop(cs121_202, year, 1).
@@ -285,6 +287,7 @@ prop(cs121_202, term, 2).
 prop(cs121_202, credits, 4).
 prop(cs121_202, activity, lecture).
 prop(cs121_202, instructor, gao).
+prop(cs121_202, coreq, [cpsc110]).
 
 prop(cs121_203, code, cpsc121).
 prop(cs121_203, year, 1).
@@ -294,6 +297,7 @@ prop(cs121_203, term, 2).
 prop(cs121_203, credits, 4).
 prop(cs121_203, activity, lecture).
 prop(cs121_203, instructor, wolfman).
+prop(cs121_203, coreq, [cpsc110]).
 
 prop(cs121_bcs, code, cpsc121).
 prop(cs121_bcs, year, 1).
@@ -303,6 +307,84 @@ prop(cs121_bcs, term, 2).
 prop(cs121_bcs, credits, 4).
 prop(cs121_bcs, activity, lecture).
 prop(cs121_bcs, instructor, wolfman).
+prop(cs121_bcs, coreq, [cpsc110]).
+
+prop(cs210_101, code, cpsc210).
+prop(cs210_101, year, 2).
+prop(cs210_101, section, 101).
+prop(cs210_101, title, [software, construction]).
+prop(cs210_101, term, 1).
+prop(cs210_101, credits, 4).
+prop(cs210_101, activity, lecture).
+prop(cs210_101, instructor, hutchinson).
+prop(cs210_101, prereq, [cpsc110]).
+prop(cs210_101, prereq, [cpsc260]).
+
+prop(cs210_102, code, cpsc210).
+prop(cs210_102, year, 2).
+prop(cs210_102, section, 102).
+prop(cs210_102, title, [software, construction]).
+prop(cs210_102, term, 1).
+prop(cs210_102, credits, 4).
+prop(cs210_102, activity, lecture).
+prop(cs210_102, instructor, schroeder).
+prop(cs210_102, prereq, [cpsc110]).
+prop(cs210_102, prereq, [cpsc260]).
+
+prop(cs210_103, code, cpsc210).
+prop(cs210_103, year, 2).
+prop(cs210_103, section, 103).
+prop(cs210_103, title, [software, construction]).
+prop(cs210_103, term, 1).
+prop(cs210_103, credits, 4).
+prop(cs210_103, activity, lecture).
+prop(cs210_103, instructor, vogt).
+prop(cs210_103, prereq, [cpsc110]).
+prop(cs210_103, prereq, [cpsc260]).
+
+prop(cs210_201, code, cpsc210).
+prop(cs210_201, year, 2).
+prop(cs210_201, section, 201).
+prop(cs210_201, title, [software, construction]).
+prop(cs210_201, term, 2).
+prop(cs210_201, credits, 4).
+prop(cs210_201, activity, lecture).
+prop(cs210_201, instructor, hutchinson).
+prop(cs210_201, prereq, [cpsc110]).
+prop(cs210_201, prereq, [cpsc260]).
+
+prop(cs210_202, code, cpsc210).
+prop(cs210_202, year, 2).
+prop(cs210_202, section, 202).
+prop(cs210_202, title, [software, construction]).
+prop(cs210_202, term, 2).
+prop(cs210_202, credits, 4).
+prop(cs210_202, activity, lecture).
+prop(cs210_202, instructor, feeley).
+prop(cs210_202, prereq, [cpsc110]).
+prop(cs210_202, prereq, [cpsc260]).
+
+prop(cs210_203, code, cpsc210).
+prop(cs210_203, year, 2).
+prop(cs210_203, section, 203).
+prop(cs210_203, title, [software, construction]).
+prop(cs210_203, term, 2).
+prop(cs210_203, credits, 4).
+prop(cs210_203, activity, lecture).
+prop(cs210_203, instructor, carter).
+prop(cs210_203, prereq, [cpsc110]).
+prop(cs210_203, prereq, [cpsc260]).
+
+prop(cs210_bcs, code, cpsc210).
+prop(cs210_202, year, 2).
+prop(cs210_bcs, section, bcs).
+prop(cs210_bcs, title, [software, construction]).
+prop(cs210_bcs, term, 2).
+prop(cs210_bcs, credits, 4).
+prop(cs210_bcs, activity, lecture).
+prop(cs210_bcs, instructor, feeley).
+prop(cs210_bcs, prereq, [cpsc110]).
+prop(cs210_bcs, prereq, [cpsc260]).
 
 prop(cs213_203, code, cpsc213).
 prop(cs213_203, year, 2).
@@ -312,6 +394,8 @@ prop(cs213_203, term, 2).
 prop(cs213_203, credits, 3).
 prop(cs213_203, activity, lecture).
 prop(cs213_203, instructor, wagner).
+prop(cs213_203, prereq, [cpsc121,cpsc210]).
+prop(cs213_203, prereq, [cpsc210,cpsc260,eece256]).
 
 prop(cs221_101, code, cpsc221).
 prop(cs221_101, year, 2).
@@ -321,6 +405,12 @@ prop(cs221_101, term, 1).
 prop(cs221_101, credits, 4).
 prop(cs221_101, activity, lecture).
 prop(cs221_101, instructor, manuch).
+prop(cs221_101, prereq, [cpsc210,cpsc121]).
+prop(cs221_101, prereq, [cpsc210,math220]).
+prop(cs221_101, prereq, [eece210,cpsc121]).
+prop(cs221_101, prereq, [eece210,math220]).
+prop(cs221_101, prereq, [cpsc121,cpsc121]).
+prop(cs221_101, prereq, [cpsc121,math220]).
 
 prop(cs221_102, code, cpsc221).
 prop(cs221_102, year, 2).
@@ -330,6 +420,12 @@ prop(cs221_102, term, 1).
 prop(cs221_102, credits, 4).
 prop(cs221_102, activity, lecture).
 prop(cs221_102, instructor, evans).
+prop(cs221_102, prereq, [cpsc210,cpsc121]).
+prop(cs221_102, prereq, [cpsc210,math220]).
+prop(cs221_102, prereq, [eece210,cpsc121]).
+prop(cs221_102, prereq, [eece210,math220]).
+prop(cs221_102, prereq, [cpsc121,cpsc121]).
+prop(cs221_102, prereq, [cpsc121,math220]).
 
 prop(cs221_201, code, cpsc221).
 prop(cs221_201, year, 2).
@@ -339,6 +435,12 @@ prop(cs221_201, term, 2).
 prop(cs221_201, credits, 4).
 prop(cs221_201, activity, lecture).
 prop(cs221_201, instructor, knorr).
+prop(cs221_201, prereq, [cpsc210,cpsc121]).
+prop(cs221_201, prereq, [cpsc210,math220]).
+prop(cs221_201, prereq, [eece210,cpsc121]).
+prop(cs221_201, prereq, [eece210,math220]).
+prop(cs221_201, prereq, [cpsc121,cpsc121]).
+prop(cs221_201, prereq, [cpsc121,math220]).
 
 prop(cs221_202, code, cpsc221).
 prop(cs221_202, year, 2).
@@ -348,6 +450,12 @@ prop(cs221_202, term, 2).
 prop(cs221_202, credits, 4).
 prop(cs221_202, activity, lecture).
 prop(cs221_202, instructor, manuch).
+prop(cs221_202, prereq, [cpsc210,cpsc121]).
+prop(cs221_202, prereq, [cpsc210,math220]).
+prop(cs221_202, prereq, [eece210,cpsc121]).
+prop(cs221_202, prereq, [eece210,math220]).
+prop(cs221_202, prereq, [cpsc121,cpsc121]).
+prop(cs221_202, prereq, [cpsc121,math220]).
 
 prop(cs259_101, code, cpsc259).
 prop(cs259_101, year, 2).
@@ -357,6 +465,7 @@ prop(cs259_101, term, 1).
 prop(cs259_101, credits, 4).
 prop(cs259_101, activity, lecture).
 prop(cs259_101, instructor, awad).
+prop(cs259_101, prereq, [apsc160]).
 
 prop(cs261_201, code, cpsc261).
 prop(cs261_201, year, 2).
@@ -366,6 +475,8 @@ prop(cs261_201, term, 2).
 prop(cs261_201, credits, 4).
 prop(cs261_201, activity, lecture).
 prop(cs261_201, instructor, schroeder).
+prop(cs261_201, prereq, [eece259, cpen211]).
+prop(cs261_201, prereq, [cpsc260, eece210, cpen221]).
 
 prop(cs213_101, code, cpsc213).
 prop(cs213_101, year, 2).
@@ -375,6 +486,8 @@ prop(cs213_101, term, 1).
 prop(cs213_101, credits, 4).
 prop(cs213_101, activity, lecture).
 prop(cs213_101, instructor, awad).
+prop(cs213_101, prereq, [cpsc121, cpsc210]).
+prop(cs213_101, prereq, [cpsc210, cpsc260, eece256]).
 
 prop(cs301_201, code, cpsc301).
 prop(cs301_201, year, 3).
@@ -384,6 +497,7 @@ prop(cs301_201, term, 2).
 prop(cs301_201, credits, 3).
 prop(cs301_201, activity, lecture).
 prop(cs301_201, instructor, dawson).
+prop(cs301_201, prereq, [cpsc210]).
 
 prop(cs302_101, code, cpsc302).
 prop(cs302_101, year, 3).
@@ -392,7 +506,6 @@ prop(cs302_101, title, [numerical, computation, for, algebraic, problems]).
 prop(cs302_101, term, 1).
 prop(cs302_101, credits, 3).
 prop(cs302_101, activity, lecture).
-prop(cs302_101, instructor, friedlander).
 
 prop(cs303_201, code, cpsc303).
 prop(cs303_201, year, 3).
@@ -411,6 +524,10 @@ prop(cs304_101, term, 1).
 prop(cs304_101, credits, 3).
 prop(cs304_101, activity, lecture).
 prop(cs304_101, instructor, imran).
+prop(cs304_101, prereq, [cpsc221]).
+prop(cs304_101, prereq, [cpsc260,eece320,cpsc210]).
+prop(cs304_101, prereq, [cpsc260,eece320,eece210]).
+prop(cs304_101, prereq, [cpsc260,eece320,eece309]).
 
 prop(cs304_201, code, cpsc304).
 prop(cs304_201, year, 3).
@@ -420,6 +537,9 @@ prop(cs304_201, term, 2).
 prop(cs304_201, credits, 3).
 prop(cs304_201, activity, lecture).
 prop(cs304_201, instructor, lakshmanan).
+prop(cs304_201, prereq, [cpsc260,eece320,cpsc210]).
+prop(cs304_201, prereq, [cpsc260,eece320,eece210]).
+prop(cs304_201, prereq, [cpsc260,eece320,eece309]).
 
 prop(cs310_101, code, cpsc310).
 prop(cs310_101, year, 3).
@@ -429,6 +549,7 @@ prop(cs310_101, term, 1).
 prop(cs310_101, credits, 4).
 prop(cs310_101, activity, lecture).
 prop(cs310_101, instructor, holmes).
+prop(cs310_101, prereq, [cpsc210]).
 
 prop(cs310_201, code, cpsc310).
 prop(cs310_201, year, 3).
@@ -438,6 +559,7 @@ prop(cs310_201, term, 2).
 prop(cs310_201, credits, 4).
 prop(cs310_201, activity, lecture).
 % Instructor for this course TBA
+prop(cs310_201, prereq, [cpsc210]).
 
 prop(cs311_101, code, cpsc311).
 prop(cs311_101, year, 3).
@@ -447,6 +569,7 @@ prop(cs311_101, term, 1).
 prop(cs311_101, credits, 3).
 prop(cs311_101, activity, lecture).
 prop(cs311_101, instructor, dunfield).
+prop(cs311_101, prereq, [cpsc210]).
 
 prop(cs312_101, code, cpsc312).
 prop(cs312_101, year, 3).
@@ -456,6 +579,10 @@ prop(cs312_101, term, 1).
 prop(cs312_101, credits, 3).
 prop(cs312_101, activity, lecture).
 prop(cs312_101, instructor, poole).
+prop(cs312_101, prereq, [cpsc210]).
+prop(cs312_101, prereq, [eece210]).
+prop(cs312_101, prereq, [eece309]).
+prop(cs312_101, prereq, [cpen221]).
 
 prop(cs313_101, code, cpsc313).
 prop(cs313_101, year, 3).
@@ -465,6 +592,8 @@ prop(cs313_101, term, 1).
 prop(cs313_101, credits, 3).
 prop(cs313_101, activity, lecture).
 prop(cs313_101, instructor, feeley).
+prop(cs313_101, prereq, [cpsc213,cpsc221]).
+prop(cs313_101, prereq, [cpsc210,cpsc213,cpsc260,eece320]).
 
 prop(cs313_202, code, cpsc313).
 prop(cs313_202, year, 3).
@@ -474,6 +603,8 @@ prop(cs313_202, term, 2).
 prop(cs313_202, credits, 3).
 prop(cs313_202, activity, lecture).
 prop(cs313_202, instructor, acton).
+prop(cs313_202, prereq, [cpsc213,cpsc221]).
+prop(cs313_202, prereq, [cpsc210,cpsc213,cpsc260,eece320]).
 
 prop(cs314_101, code, cpsc314).
 prop(cs314_101, year, 3).
@@ -501,6 +632,8 @@ prop(cs317_101, term, 1).
 prop(cs317_101, credits, 3).
 prop(cs317_101, activity, lecture).
 prop(cs317_101, instructor, acton).
+prop(cs317_101, prereq, [cpsc213,cpsc221]).
+prop(cs317_101, prereq, [cpsc213,cpsc210,cpsc260,eece320]).
 
 prop(cs317_201, code, cpsc317).
 prop(cs317_201, year, 3).
@@ -510,6 +643,8 @@ prop(cs317_201, term, 2).
 prop(cs317_201, credits, 3).
 prop(cs317_201, activity, lecture).
 prop(cs317_201, instructor, acton).
+prop(cs317_201, prereq, [cpsc213,cpsc221]).
+prop(cs317_201, prereq, [cpsc213,cpsc210,cpsc260,eece320]).
 
 prop(cs319_201, code, cpsc319).
 prop(cs319_201, year, 3).
@@ -519,6 +654,7 @@ prop(cs319_201, term, 2).
 prop(cs319_201, credits, 4).
 prop(cs319_201, activity, lecture).
 prop(cs319_201, instructor, jim).
+prop(cs319_201, prereq, [cpsc319]).
 
 prop(cs320_102, code, cpsc320).
 prop(cs320_102, year, 3).
@@ -528,6 +664,8 @@ prop(cs320_102, term, 1).
 prop(cs320_102, credits, 3).
 prop(cs320_102, activity, lecture).
 prop(cs320_102, instructor, wolfman).
+prop(cs320_102, prereq, [cpsc221]).
+prop(cs320_102, prereq, [cpsc260,eece320]).
 
 prop(cs320_201, code, cpsc320).
 prop(cs320_201, year, 3).
@@ -537,6 +675,8 @@ prop(cs320_201, term, 2).
 prop(cs320_201, credits, 3).
 prop(cs320_201, activity, lecture).
 prop(cs320_201, instructor, wolfman).
+prop(cs320_201, prereq, [cpsc221]).
+prop(cs320_201, prereq, [cpsc260,eece320]).
 
 prop(cs320_202, code, cpsc320).
 prop(cs320_202, year, 3).
@@ -546,6 +686,8 @@ prop(cs320_202, term, 2).
 prop(cs320_202, credits, 3).
 prop(cs320_202, activity, lecture).
 prop(cs320_202, instructor, manuch).
+prop(cs320_202, prereq, [cpsc221]).
+prop(cs320_202, prereq, [cpsc260,eece320]).
 
 prop(cs322_101, code, cpsc322).
 prop(cs322_101, year, 3).
@@ -555,6 +697,10 @@ prop(cs322_101, term, 1).
 prop(cs322_101, credits, 3).
 prop(cs322_101, activity, lecture).
 prop(cs322_101, instructor, oveisifordoei).
+prop(cs322_101, prereq, [cpsc221]).
+prop(cs322_101, prereq, [cpsc260,eece320,cpsc210]).
+prop(cs322_101, prereq, [cpsc260,eece320,eece210]).
+prop(cs322_101, prereq, [cpsc260,eece320,eece309]).
 
 prop(cs322_201, code, cpsc322).
 prop(cs322_201, year, 3).
@@ -564,6 +710,10 @@ prop(cs322_201, term, 2).
 prop(cs322_201, credits, 3).
 prop(cs322_201, activity, lecture).
 prop(cs322_201, instructor, conati).
+prop(cs322_201, prereq, [cpsc221]).
+prop(cs322_201, prereq, [cpsc260,eece320,cpsc210]).
+prop(cs322_201, prereq, [cpsc260,eece320,eece210]).
+prop(cs322_201, prereq, [cpsc260,eece320,eece309]).
 
 prop(cs340_101, code, cpsc340).
 prop(cs340_101, year, 3).
@@ -591,6 +741,10 @@ prop(cs344_101, term, 1).
 prop(cs344_101, credits, 3).
 prop(cs344_101, activity, lecture).
 prop(cs344_101, instructor, maclean).
+prop(cs344_101, prereq, [cpsc210]).
+prop(cs344_101, prereq, [eece210]).
+prop(cs344_101, prereq, [eece309]).
+prop(cs344_101, prereq, [cpen221]).
 
 prop(cs404_101, code, cpsc404).
 prop(cs404_101, year, 4).
@@ -600,6 +754,8 @@ prop(cs404_101, term, 1).
 prop(cs404_101, credits, 3).
 prop(cs404_101, activity, lecture).
 prop(cs404_101, instructor, knorr).
+prop(cs404_101, prereq, [cpsc304,cpsc213]).
+prop(cs404_101, prereq, [cpsc304,cpsc261]).
 
 prop(cs406_101, code, cpsc406).
 prop(cs406_101, year, 4).
@@ -609,6 +765,9 @@ prop(cs406_101, term, 1).
 prop(cs406_101, credits, 3).
 prop(cs406_101, activity, lecture).
 prop(cs406_101, instructor, ascher).
+prop(cs406_101, prereq, [cpsc302]).
+prop(cs406_101, prereq, [cpsc303]).
+prop(cs406_101, prereq, [math307]).
 
 prop(cs411_201, code, cpsc411).
 prop(cs411_201, year, 4).
@@ -618,6 +777,7 @@ prop(cs411_201, term, 2).
 prop(cs411_201, credits, 3).
 prop(cs411_201, activity, lecture).
 prop(cs411_201, instructor, garcia).
+prop(cs411_201, prereq, [cpsc311,cpsc213]).
 
 prop(cs415_101, code, cpsc415).
 prop(cs415_101, year, 4).
@@ -636,6 +796,15 @@ prop(cs416_201, term, 2).
 prop(cs416_201, credits, 3).
 prop(cs416_201, activity, lecture).
 prop(cs416_201, instructor, beschastnikh).
+prop(cs416_201, prereq, [cpsc313,cpsc317]).
+prop(cs416_201, prereq, [cpsc313,eece358]).
+prop(cs416_201, prereq, [cpsc313,elec331]).
+prop(cs416_201, prereq, [eece315,cpsc317]).
+prop(cs416_201, prereq, [eece315,eece358]).
+prop(cs416_201, prereq, [eece315,elec331]).
+prop(cs416_201, prereq, [cpen331,cpsc317]).
+prop(cs416_201, prereq, [cpen331,eece358]).
+prop(cs416_201, prereq, [cpen331,elec331]).
 
 prop(cs418_201, code, cpsc418).
 prop(cs418_201, year, 4).
@@ -654,6 +823,7 @@ prop(cs420_201, term, 2).
 prop(cs420_201, credits, 3).
 prop(cs420_201, activity, lecture).
 prop(cs420_201, instructor, evans).
+prop(cs420_201, prereq, [cpsc320]).
 
 prop(cs421_101, code, cpsc421).
 prop(cs421_101, year, 4).
@@ -663,6 +833,8 @@ prop(cs421_101, term, 1).
 prop(cs421_101, credits, 3).
 prop(cs421_101, activity, lecture).
 prop(cs421_101, instructor, harvey).
+prop(cs421_101, prereq, [cpsc221]).
+prop(cs421_101, prereq, [cpsc260,eece320]).
 
 prop(cs422_101, code, cpsc422).
 prop(cs422_101, year, 4).
@@ -672,6 +844,7 @@ prop(cs422_101, term, 1).
 prop(cs422_101, credits, 3).
 prop(cs422_101, activity, lecture).
 prop(cs422_101, instructor, carenini).
+prop(cs422_101, prereq, [cpsc322]).
 
 prop(cs425_201, code, cpsc425).
 prop(cs425_201, year, 4).
@@ -681,6 +854,8 @@ prop(cs425_201, term, 2).
 prop(cs425_201, credits, 3).
 prop(cs425_201, activity, lecture).
 prop(cs425_201, instructor, little).
+prop(cs425_201, prereq, [math200,math221,cpsc221]).
+prop(cs425_201, prereq, [math200,math221,cpsc260,eece320]).
 
 prop(cs426_201, code, cpsc426).
 prop(cs426_201, year, 4).
@@ -690,6 +865,7 @@ prop(cs426_201, term, 2).
 prop(cs426_201, credits, 3).
 prop(cs426_201, activity, lecture).
 prop(cs426_201, instructor, vandepanne).
+prop(cs426_201, prereq, [cpsc314,eece478]).
 
 prop(cs430_101, code, cpsc430).
 prop(cs430_101, year, 4).
@@ -708,6 +884,8 @@ prop(cs444_201, term, 2).
 prop(cs444_201, credits, 3).
 prop(cs444_201, activity, lecture).
 prop(cs444_201, instructor, mcgrenere).
+prop(cs444_201, prereq, [cpsc310,cpsc344,stat200]).
+prop(cs444_201, prereq, [cpsc310,cpsc344,stat241]).
 
 prop(cs445_201, code, cpsc445).
 prop(cs445_201, year, 4).
@@ -717,3 +895,11 @@ prop(cs445_201, term, 2).
 prop(cs445_201, credits, 3).
 prop(cs445_201, activity, lecture).
 prop(cs445_201, instructor, hoos).
+prop(cs445_201, prereq, [cpsc320]).
+
+% Mock Database of Students
+prop(sn1, name, sam).
+prop(sn1, completed, []).
+
+prop(sn2, name, tammy).
+prop(sn2, completed, [cpsc110]).
