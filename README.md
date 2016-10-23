@@ -1,12 +1,12 @@
 ## CS312 Project 1: Prolog Advisor
 Prolog advisor can answer questions about Computer Science courses offered in the 2016/17W school year.
 
-Use `ask([Q])` to ask yes/no questions. For example, `ask([is, pottinger, teaching, cpsc100]).`
+Use `ask([Q])` to ask yes/no questions. For example, `ask([is, pottinger, teaching, cs100]).`
 Use `ask([Q],A)` to ask for singular answers for questions. For example, `ask([what,is,a,third,year,course],A).`
 Use `ask_all([Q],L)` to ask for a list of answers questions. For example, `ask_all([what,is,a,third,year,course],L).`
 
 ### Properties
-+ Each course section is represented by an identifier. Eg. CPSC 100, section 101 has code cs100_101.
++ Each course section is represented by an identifier. Eg. cs 100, section 101 has code cs100_101.
 + Each course has the following properties:
 
 Property | Description
@@ -18,7 +18,7 @@ credits | number of credits awarded
 prereq | list of prerequisites for the course
 
 COURSE OFFERINGS
-code | course code in format cpscXXX
+code | course code in format csXXX
 section | course section
 term | term offered
 activity | activity type (lecture, laboratory, tutorial)
@@ -37,7 +37,7 @@ completed | list of completed courses
 
 ### Interesting feature to be implemented
 + Implement a student database.
-+ Implement a pre-req checker. eg. can sam take cpscXXX?
++ Implement a pre-req checker. eg. can sam take csXXX?
 
 ### Problems
 + Can we use set_of to reduce repeated answers? (FIXED)
@@ -45,7 +45,7 @@ completed | list of completed courses
 ### Some questions we can implement
 + what does poole teach?
 + what course is offered in term1?
-+ is cpsc310 in term1?
-+ who is teaching section 1 of cpsc103?
-+ who is teaching what section of cpsc103?
++ is cs310 in term1?
++ who is teaching section 1 of cs103?
++ who is teaching what section of cs103?
 + what section of cs221 is wolfman teaching?
