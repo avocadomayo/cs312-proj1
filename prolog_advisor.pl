@@ -70,6 +70,7 @@ noun([credits | T],T,Ind) :- prop(_, credit, Ind).
 % The following are for proper nouns:
 noun([Ind | T],T,Ind) :- prop(_, code, Ind).
 noun([Ind | T],T,Ind) :- prop(_, instructor, Ind).
+noun([Ind | T],T,Ind) :- prop(_, name, Ind).
 
 % reln(T0,T1,I1,I2,R0,R1) is true if T0-T1 is a relation
 %   that provides relations R1-R0 on individuals I1 and I2
@@ -79,6 +80,12 @@ reln([taught, by | T],T,I1,I2) :- prop(C,code,I1), prop(C,instructor,I2).
 reln([term,is | T],T,I1,I2) :- prop(C,term,I1), prop(C,code,I2).
 reln([the, title, of | T],T,I1,I2) :- prop(C,title,I1), prop(C,code,I2).
 reln([credits, is | T],T,I1,I2) :- prop(C,credits,I1), prop(C,code,I2).
+reln([take | T],T,I1,I2) :-
+    prop(C,code,I2), prop(S,name,I1),
+    prop(S,completed,CC), prop(C,prereq,PC),
+    subset(PC,CC).
+reln([take | T],T,I1,I2) :-
+    prop(C,code,I2), prop(_,name,I1), \+prop(C,prereq,_).
 
 % question(Question,QR,Ind) is true if Question-QR is true of Ind
 
@@ -116,13 +123,18 @@ question([what,is | T0],T1,Ind) :-
 question([how,many | T0],T1,Ind) :-
     mp(T0,T1,Ind).
 
+% handles: can {name} take {course}
+question([can | T0],T2,Ind) :-
+    noun_phrase(T0,T1,Ind),
+    mp(T1,T2,Ind).
+
 % ask(Q,A) gives an answer A to question Q
 ask(Q,A) :-
 	ask_all(Q,S),
     extract_a(S,A).
 % ask(Q) returns true or false to the question Q
 ask(Q) :-
-    question(Q,[],_).
+    setof(V, question(Q,[],V),_).
 
 % ask_all(Q) returns a set of all answers A for Q
 ask_all(Q, A) :-
@@ -267,7 +279,6 @@ prop(cs121_102, term, 1).
 prop(cs121_102, credits, 4).
 prop(cs121_102, activity, lecture).
 prop(cs121_102, instructor, belleville).
-prop(cs121_102, coreq, [cpsc110]).
 
 prop(cs121_103, code, cpsc121).
 prop(cs121_103, year, 1).
@@ -277,7 +288,6 @@ prop(cs121_103, term, 1).
 prop(cs121_103, credits, 4).
 prop(cs121_103, activity, lecture).
 prop(cs121_103, instructor, belleville).
-prop(cs121_103, coreq, [cpsc110]).
 
 prop(cs121_202, code, cpsc121).
 prop(cs121_202, year, 1).
@@ -287,7 +297,6 @@ prop(cs121_202, term, 2).
 prop(cs121_202, credits, 4).
 prop(cs121_202, activity, lecture).
 prop(cs121_202, instructor, gao).
-prop(cs121_202, coreq, [cpsc110]).
 
 prop(cs121_203, code, cpsc121).
 prop(cs121_203, year, 1).
@@ -297,7 +306,6 @@ prop(cs121_203, term, 2).
 prop(cs121_203, credits, 4).
 prop(cs121_203, activity, lecture).
 prop(cs121_203, instructor, wolfman).
-prop(cs121_203, coreq, [cpsc110]).
 
 prop(cs121_bcs, code, cpsc121).
 prop(cs121_bcs, year, 1).
@@ -307,7 +315,6 @@ prop(cs121_bcs, term, 2).
 prop(cs121_bcs, credits, 4).
 prop(cs121_bcs, activity, lecture).
 prop(cs121_bcs, instructor, wolfman).
-prop(cs121_bcs, coreq, [cpsc110]).
 
 prop(cs210_101, code, cpsc210).
 prop(cs210_101, year, 2).
@@ -898,8 +905,14 @@ prop(cs445_201, instructor, hoos).
 prop(cs445_201, prereq, [cpsc320]).
 
 % Mock Database of Students
-prop(sn1, name, sam).
-prop(sn1, completed, []).
+prop(sn11111111, name, sam).
+prop(sn11111111, completed, []).
 
-prop(sn2, name, tammy).
-prop(sn2, completed, [cpsc110]).
+prop(sn22222222, name, tammy).
+prop(sn22222222, completed, [cpsc110]).
+
+prop(sn33333333, name, ruth).
+prop(sn33333333, completed, [cpsc110,cpsc121,cpsc210,cpsc213,cpsc221,cpsc310]).
+
+prop(sn44444444, name, wendy).
+prop(sn44444444, completed, [cpen221]).

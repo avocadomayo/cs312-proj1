@@ -11,6 +11,7 @@ Use `ask_all([Q],L)` to ask for a list of answers questions. For example, `ask_a
 
 Property | Description
 --- | ---
+COURSES
 code | course code in format cpscXXX
 year | course year 1, 2, 3 or 4
 section | course section
@@ -26,6 +27,11 @@ startTime | start time designated in 24h clock
 endTime | end time designated in 24h clock
 building | lecture building
 room | lecture room
+prereq | list of prerequisites for the course
+
+STUDENTS
+name | name of the student
+completed | list of completed courses
 
 ### Interesting feature to be implemented
 + Implement a student database.
