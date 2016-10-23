@@ -31,7 +31,7 @@ room | lecture room
 + Implement a pre-req checker. eg. can sam take cpscXXX?
 
 ### Problems
-+ Can we use set_of to reduce repeated answers?
++ Can we use set_of to reduce repeated answers? (FIXED)
 
 ### Some questions we can implement
 + what does poole teach?

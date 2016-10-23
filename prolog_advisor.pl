@@ -116,11 +116,22 @@ question([what,is | T0],T1,Ind) :-
 question([how,many | T0],T1,Ind) :-
     mp(T0,T1,Ind).
 
-% ask(Q,A) gives answer A to question Q
+% ask(Q,A) gives an answer A to question Q
 ask(Q,A) :-
-    question(Q,[],A).
+	ask_all(Q,S),
+    extract_a(S,A).
+% ask(Q) returns true or false to the question Q
 ask(Q) :-
     question(Q,[],_).
+
+% ask_all(Q) returns a set of all answers A for Q
+ask_all(Q, A) :-
+    setof(V, question(Q,[],V),A).
+
+% extracts an answer A from the set of set of answers
+extract_a([A | _],A).
+extract_a([_ | T],A) :-
+	extract_a(T,A).
 
 /* Try the following queries
 | ?- ask([who,is,teaching,cpsc100], A).
